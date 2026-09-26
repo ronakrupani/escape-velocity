@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 // GitHub Pages serves the site from /escape-velocity/. Dev runs at the root.
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/escape-velocity/' : '/',
+  // Lets several dev servers share one node_modules (e.g. git worktrees).
+  cacheDir: process.env.VITE_CACHE_DIR ?? 'node_modules/.vite',
   plugins: [react(), tailwindcss()],
   assetsInclude: ['**/*.glsl'],
   build: {

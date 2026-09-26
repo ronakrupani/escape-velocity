@@ -4,7 +4,9 @@
  */
 import { Frame } from './Director';
 import { AsteroidBelt } from './scenes/AsteroidBelt';
+import { Clouds } from './scenes/Clouds';
 import { DeepRocket } from './scenes/DeepRocket';
+import { DuskSky } from './scenes/DuskSky';
 import { Earth } from './scenes/Earth';
 import { Galaxy } from './scenes/Galaxy';
 import { Heliosphere } from './scenes/Heliosphere';
@@ -23,9 +25,11 @@ export function World() {
   return (
     <>
       <Sky />
+      <DuskSky />
       <Frame id="earth">
         <LaunchSite />
         <Rocket />
+        <Clouds />
         <Earth />
         <Moon />
       </Frame>

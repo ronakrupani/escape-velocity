@@ -96,3 +96,70 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- 3D labels (src/three/Label3D.tsx) ---------- */
+.ev-label {
+  position: relative;
+  transform: translate(0, -50%);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  user-select: none;
+}
+.ev-label[data-side='left'] {
+  transform: translate(-100%, -50%);
+}
+.ev-label__tick {
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border: 1px solid var(--frost);
+  border-radius: 50%;
+}
+.ev-label[data-accent] .ev-label__tick {
+  border-color: var(--ignite);
+  background: var(--ignite);
+  box-shadow: 0 0 12px var(--ignite);
+}
+.ev-label__line {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.1));
+}
+.ev-label__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 40px;
+  padding: 4px 0;
+}
+.ev-label[data-side='left'] .ev-label__text {
+  margin-left: 0;
+  margin-right: 40px;
+  align-items: flex-end;
+}
+.ev-label[data-side='left'] .ev-label__line {
+  left: auto;
+  right: 6px;
+  background: linear-gradient(270deg, rgb(255 255 255 / 0.6), rgb(255 255 255 / 0.1));
+}
+.ev-label[data-side='left'] .ev-label__tick {
+  left: auto;
+  right: -3px;
+}
+.ev-label__title {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-hi);
+}
+.ev-label__sub {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-lo);
+}
